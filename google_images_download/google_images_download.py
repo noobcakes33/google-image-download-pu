@@ -6,7 +6,7 @@
 
 # Import Libraries
 import sys
-import selenium.common.exceptions
+# import selenium.common.exceptions
 
 version = (3, 0)
 cur_version = sys.version_info
@@ -411,9 +411,9 @@ class googleimagesdownload:
             formatted_object['image_width'] = main[1]
             formatted_object['image_link'] = main[0]
             formatted_object['image_format'] = main[0][-1 * (len(main[0]) - main[0].rfind(".") - 1):]
-            formatted_object['image_description'] = info['2003'][3]
-            formatted_object['image_host'] = info['2003'][17]
-            formatted_object['image_source'] = info['2003'][2]
+            # formatted_object['image_description'] = info['2003'][3]
+            # formatted_object['image_host'] = info['2003'][17]
+            # formatted_object['image_source'] = info['2003'][2]
             formatted_object['image_thumbnail_url'] = data[2][0]
         except Exception as e:
             print(e)
@@ -906,7 +906,7 @@ class googleimagesdownload:
                     object['image_link'], object['image_format'], main_directory, dir_name, count,
                     arguments['print_urls'], arguments['socket_timeout'], arguments['prefix'], arguments['print_size'],
                     arguments['no_numbering'], arguments['no_download'], arguments['save_source'],
-                    object['image_source'], arguments["silent_mode"], arguments["thumbnail_only"], arguments['format'],
+                    object['image_link'], arguments["silent_mode"], arguments["thumbnail_only"], arguments['format'],
                     arguments['ignore_urls'])
                 if not arguments["silent_mode"]:
                     print(download_message)
@@ -917,7 +917,7 @@ class googleimagesdownload:
                         download_status, download_message_thumbnail = self.download_image_thumbnail(
                             object['image_thumbnail_url'], main_directory, dir_name, return_image_name,
                             arguments['print_urls'], arguments['socket_timeout'], arguments['print_size'],
-                            arguments['no_download'], arguments['save_source'], object['image_source'],
+                            arguments['no_download'], arguments['save_source'], object['image_link'],
                             arguments['ignore_urls'])
                         if not arguments["silent_mode"]:
                             print(download_message_thumbnail)
